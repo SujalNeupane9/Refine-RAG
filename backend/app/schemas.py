@@ -11,6 +11,7 @@ class Source(BaseModel):
     file: Optional[str] = None
     page: Optional[int] = None
     chunk_id: Optional[str] = None
+    chunk_text: Optional[str] = None
 
 
 class AskResponse(BaseModel):

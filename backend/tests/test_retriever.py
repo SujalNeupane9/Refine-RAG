@@ -53,8 +53,18 @@ def test_retrieve_node_returns_documents_context_and_sources(monkeypatch):
     assert "The Critique Agent checks context relevance." in result["context"]
     assert "[Source 1: sample.md, page 1, chunk 0]" in result["context"]
     assert result["sources"] == [
-        {"file": "sample.md", "page": 1, "chunk_id": "0"},
-        {"file": "sample.md", "page": 1, "chunk_id": "1"},
+        {
+            "file": "sample.md",
+            "page": 1,
+            "chunk_id": "0",
+            "chunk_text": "The Critique Agent checks context relevance.",
+        },
+        {
+            "file": "sample.md",
+            "page": 1,
+            "chunk_id": "1",
+            "chunk_text": "The Generator Agent answers from approved context.",
+        },
     ]
 
 
@@ -75,4 +85,6 @@ def test_format_docs_and_extract_sources_deduplicate_sources():
 
     assert "[Source 1: guide.md, page 2, chunk a]" in context
     assert "Duplicate source chunk." in context
-    assert sources == [{"file": "guide.md", "page": 2, "chunk_id": "a"}]
+    assert sources == [
+        {"file": "guide.md", "page": 2, "chunk_id": "a", "chunk_text": "First chunk."}
+    ]

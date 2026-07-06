@@ -61,8 +61,9 @@ def extract_sources(documents: List[Document]) -> List[Dict[str, Any]]:
             "file": document.metadata.get("file"),
             "page": document.metadata.get("page"),
             "chunk_id": document.metadata.get("chunk_id"),
+            "chunk_text": document.page_content.strip(),
         }
-        source_key = tuple(source.items())
+        source_key = (source["file"], source["page"], source["chunk_id"])
 
         if source_key in seen_sources:
             continue

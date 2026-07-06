@@ -51,6 +51,7 @@ def _normalize_sources(sources: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "file": source.get("file"),
             "page": source.get("page"),
             "chunk_id": source.get("chunk_id"),
+            "chunk_text": source.get("chunk_text"),
         }
         for source in sources
     ]

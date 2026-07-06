@@ -18,7 +18,14 @@ def test_workflow_completes_with_retrieval_and_answer_retry(monkeypatch):
             "iteration": state.get("iteration", 0) + 1,
             "documents": ["chunk"],
             "context": "retrieved context",
-            "sources": [{"file": "sample.md", "page": 1, "chunk_id": "0"}],
+            "sources": [
+                {
+                    "file": "sample.md",
+                    "page": 1,
+                    "chunk_id": "0",
+                    "chunk_text": "retrieved context",
+                }
+            ],
         }
 
     def fake_critique_retrieval(state):

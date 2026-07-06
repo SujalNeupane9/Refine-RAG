@@ -19,7 +19,14 @@ def test_ask_endpoint_returns_typed_response(monkeypatch):
         "ask_question",
         lambda question: {
             "answer": f"Answer for {question}",
-            "sources": [{"file": "sample.md", "page": 1, "chunk_id": "0"}],
+            "sources": [
+                {
+                    "file": "sample.md",
+                    "page": 1,
+                    "chunk_id": "0",
+                    "chunk_text": "Context used for this answer.",
+                }
+            ],
             "critique": "short critique",
         },
     )
@@ -28,7 +35,14 @@ def test_ask_endpoint_returns_typed_response(monkeypatch):
 
     assert result.model_dump() == {
         "answer": "Answer for What is RefineRAG?",
-        "sources": [{"file": "sample.md", "page": 1, "chunk_id": "0"}],
+        "sources": [
+            {
+                "file": "sample.md",
+                "page": 1,
+                "chunk_id": "0",
+                "chunk_text": "Context used for this answer.",
+            }
+        ],
         "critique": "short critique",
     }
 

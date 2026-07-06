@@ -17,5 +17,5 @@ VECTOR_STORE_PATH = os.getenv(
     str(BASE_DIR / "data" / "vector_store"),
 )
 MAX_RETRIEVAL_RETRIES = int(os.getenv("MAX_RETRIEVAL_RETRIES", "2"))
-TOP_K = int(os.getenv("TOP_K", "4"))
+TOP_K = int(os.getenv("TOP_K", "1"))
 BACKEND_URL = os.getenv("BACKEND_URL", "http://backend:8000")

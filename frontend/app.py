@@ -125,8 +125,8 @@ if answer_payload and answer_payload.get("sources"):
             source_bits.append(source["file"])
         if source.get("page") is not None:
             source_bits.append(f"page {source['page']}")
-        if source.get("chunk_id") is not None:
-            source_bits.append(f"chunk {source['chunk_id']}")
+        if source.get("chunk_text") is not None:
+            source_bits.append(f"chunk {source['chunk_text']}")
         st.write(" - " + ", ".join(source_bits) if source_bits else " - Unlabeled source")
 else:
     st.info("Sources will appear here after an answer is generated.")
