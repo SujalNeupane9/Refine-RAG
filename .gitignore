@@ -1,0 +1,42 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+task.md
+change_log.md
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Local data and vector stores
+backend/data/raw/*
+!backend/data/raw/.gitkeep
+!backend/data/raw/sample_refinerag.md
+backend/data/vector_store/*
+!backend/data/vector_store/.gitkeep
+.manual_vector_store/
+
+# blogs
+blogs/
+
+# Logs and local runtime files
+*.log
+logs/
+.streamlit/secrets.toml
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/
